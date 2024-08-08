@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" class="icon-primary-contrast" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  
+    <ion-title class="toolbar-title">Restoran</ion-title>
+  
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="chatbubble-ellipses-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content *ngIf="restaurantDetails | async as restaurantDetail; else loading">
+  <!--Slider-->
+  <div class="slider">
+    <img class="slider-image" [src]="'assets/images/MaskGroup69.png'" alt="">
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+
+  <!--Restaurant Info-->
+  <div class="restaurant-info">
+    <ion-card>
+      <img class="slider-logo" [src]="'assets/images/Path 67615.png'" alt="">
+      <div class="details">
+        <h2>{{restaurantDetail.name}}</h2>
+        <p 
+          class="status closed" 
+          *ngIf="isRestaurantClosed(restaurantDetail.workingHours).closed"
+        >{{'Şu an Kapalı'}}</p>
+        <p 
+          class="status open" 
+          *ngIf="!isRestaurantClosed(restaurantDetail.workingHours).closed"
+        >{{'Şu an Açık: ' + isRestaurantClosed(restaurantDetail.workingHours).open + '-' + isRestaurantClosed(restaurantDetail.workingHours).close}}</p>
+        <div class="info-icons">
+          <div class="info-item">
+            <ion-icon name="timer-outline"></ion-icon>
+            <span>20-25 dk</span>
+          </div>
+          <div class="info-item">
+            <ion-icon name="location-outline"></ion-icon>
+            <span>1.0 KM</span>
+          </div>
+          <div class="info-item">
+            <ion-icon name="cash-outline"></ion-icon>
+            <span>Min. 60 TL</span>
+          </div>
+        </div>
+      </div>
+      <ion-icon name="heart-outline" class="favorite-icon"></ion-icon>
+    </ion-card>
+  </div>
+
+  <app-restaurant-details-actions></app-restaurant-details-actions>
+  <app-restaurant-details-loyalty-followup></app-restaurant-details-loyalty-followup>
+</ion-content>
+
+
+
+
+<ng-template #loading>
+  <ion-spinner></ion-spinner>
+  <ion-title>Loading</ion-title>
+</ng-template>

@@ -1,0 +1,54 @@
+<ion-content>
+  <ion-header>
+    <app-welcome-bar [userInfo$]="userInfo"></app-welcome-bar>
+    <app-search-bar></app-search-bar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-toolbar>
+        <ion-title>
+          <p class="text">Restoranlar</p>
+        </ion-title>
+      </ion-toolbar>
+      <ion-col size="12" sizeMd="4" *ngFor="let restaurant of restaurants | async" (click)="onRestorantDetails(restaurant)">
+        <ion-card>
+          <div class="card-image">
+            <img [src]="!!restaurant.images[0] ? restaurant.images[0].base64 : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgAhpb7-kKp3lIXG4uA1n-nG_kubdAfWWmrw&s'" alt="">
+            <div class="card-overlay">
+              <div class="card-overlay-top">
+                <div class="discount-label">{{'5% Orwi Puan'}}</div>
+                <ion-button fill="clear" class="heart-button">
+                  <ion-icon name="heart-outline"></ion-icon>
+                </ion-button>
+              </div>
+              <div class="card-body">
+                <ion-card-title class="restaurant-name">{{restaurant.title}}</ion-card-title>
+                <div class="info-icons">
+                  <div class="info-item">
+                    <ion-icon name="timer-outline"></ion-icon>
+                    <span>20-25 dk</span>
+                  </div>
+                  <div class="info-item">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <span>1.0 KM</span>
+                  </div>
+                  <div class="info-item">
+                    <ion-icon name="cash-outline"></ion-icon>
+                    <span>Min. 60 TL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-card>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="loadMoreRestaurants($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

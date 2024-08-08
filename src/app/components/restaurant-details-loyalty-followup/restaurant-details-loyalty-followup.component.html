@@ -1,0 +1,23 @@
+<div class="gift-card">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Kahve Hediyesi</ion-card-title>
+      <p>Her 5 kahve siparişinde bir kahve bizden hediye!</p>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="loyalty-followup">
+        <img 
+          *ngFor="let i of loyaltyArr"
+          class="loyalty-count {{i == 1 ? 'active' : ''}}"
+          [src]="'assets/images/Group 41623.svg'" 
+          alt=""
+        >
+        <span>{{'1/' + loyaltyArr.length}}</span>
+
+      </div>
+      
+    </ion-card-content>
+    
+  </ion-card>
+</div>

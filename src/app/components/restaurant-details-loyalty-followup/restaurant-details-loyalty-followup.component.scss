@@ -1,0 +1,14 @@
+.loyalty-count {
+    background-color: #DDDEE1;
+
+    &.active {
+        background-color: var(--ion-color-primary-contrast);
+    }
+}
+
+.loyalty-followup {
+    display: flex;
+    align-items: center; /* Yatayda ortalar */
+    justify-content: space-between; /* Eşit aralıklarla dağıtır */
+    flex-wrap: wrap; /* Satır sonuna taşan öğeler yeni satıra geçer */
+  }

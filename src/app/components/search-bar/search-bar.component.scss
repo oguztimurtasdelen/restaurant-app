@@ -1,0 +1,25 @@
+ion-toolbar {
+    display: flex;
+    align-items: center;
+}
+
+ion-searchbar {
+    flex: 1;
+    color: var(--ion-color-secondary-contrast);
+    --icon-color: var(--ion-color-primary-contrast);
+}
+
+.searchbar-input, .sc-ion-searchbar-md {
+    background-color: red;
+}
+
+ion-button {
+    background-color: var(--ion-color-primary-contrast);
+    border-radius: 8px;
+}
+
+ion-icon {
+    transform: rotate(90deg);
+    color: var(--primary-color);
+}
+  

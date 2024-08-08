@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  version: '1.0',
+  apiInfo: {
+    baseUrl: 'https://smarty.kerzz.com:4004/api',
+    apiKey: 'bW9jay04ODc3NTU2NjExMjEyNGZmZmZmZmJ2'
+  }
 };
 
 /*

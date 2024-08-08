@@ -1,0 +1,90 @@
+ion-card {
+    position: relative;
+    overflow: hidden;
+    padding: 0;;
+}
+
+.card-image {
+    position: relative;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    color: #FFFFFF;
+    background: linear-gradient(to top, #343434, #34343496, #FFFFFF00);
+}
+
+
+
+.card-overlay-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discount-label {
+    background-color: hsl(0, 0%, 93%, 70%);
+    color: #1F263A;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.heart-button {
+    background-color: hsl(0, 0%, 93%, 70%);
+    height: 100%;
+    width: auto;
+    color: #1F263A;
+    border-radius: 50%;
+    
+}
+
+.card-body {
+    color: #FFFFFF;
+}
+
+.restaurant-name {
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.info-icons {
+    display: flex;
+    justify-content: left;
+    margin-top: 10px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    font-size: smaller;
+    margin-right: 10px;
+    ion-icon {
+        margin-right: 5px;
+    }
+}
+
+
+.card-image::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 33%;
+    pointer-events: none;
+}

@@ -1,0 +1,35 @@
+<!--
+<ion-toolbar>
+  <ion-title>
+    {{findDefaultAddress(userInfo$) || defaultAddress}}
+  </ion-title>
+  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-toolbar>
+  <div class="welcome-text">
+    <p>Günaydın {{ userInfo$.name || 'Salih' }}, <ion-icon name="sunny-outline"></ion-icon></p>
+    <p>Bugün ne yemek istersin?</p>
+  </div>
+</ion-toolbar>
+-->
+
+<ion-toolbar class="address-bar">
+  <ion-title class="address-toolbar-title toolbar-title">
+    <p class="address-text text">{{findDefaultAddress(userInfo$) || defaultAddress}}</p>
+  </ion-title>
+  <ion-button fill="clear" slot="end">
+    <ion-icon name="chevron-down-outline"></ion-icon>
+  </ion-button>
+</ion-toolbar>
+
+<ion-toolbar class="welcome-bar">
+  <ion-title class="welcome-toolbar-title toolbar-title">
+    <p class="welcome-text text">Günaydın <b>{{ userInfo$.name || 'Salih' }}</b>, <ion-icon name="sunny-outline"></ion-icon></p>
+    <p class="welcome-text text">Bugün ne yemek istersin?</p>
+  </ion-title>
+</ion-toolbar>
